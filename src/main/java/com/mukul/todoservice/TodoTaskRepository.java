@@ -1,4 +1,7 @@
 package com.mukul.todoservice;
 
-public interface TodoTaskRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TodoTaskRepository extends JpaRepository<TodoTask, Integer> {
+
 }
