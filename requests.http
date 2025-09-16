@@ -1,17 +1,29 @@
-### GET request to example server
-GET http://localhost:8080
+###
+GET http://localhost:8080/api/todo-tasks
 
 ###
-GET http://localhost:8080//api/v1/todo-tasks
+GET http://localhost:8080/api/todo-tasks/1
 
 ###
-GET http://localhost:8080//api/v1/todo-tasks/1
-
-###
-POST http://localhost:8080//api/v1/todo-tasks
+POST http://localhost:8080/api/todo-tasks
 Content-Type: application/json
 
 {
-  "task": "Learn German",
+  "task": "sleep",
   "done": false
 }
+
+###
+PUT http://localhost:8080/api/todo-tasks/3
+Content-Type: application/json
+
+{
+  "task": "sleep",
+  "done": true
+}
+
+###
+DELETE http://localhost:8080/api/todo-tasks
+
+###
+DELETE http://localhost:8080/api/todo-tasks/4

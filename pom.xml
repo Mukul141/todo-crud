@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mukul</groupId>
-    <artifactId>todo-service</artifactId>
+    <artifactId>ToDoo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>todo-service</name>
     <description>todo-service</description>
