@@ -1,105 +1,79 @@
-ToDo CRUD (Java, Spring Boot, Postgres, Maven)
+-----
 
-A simple REST API to manage todo items, built with Java and Spring Boot, using PostgreSQL for persistence and Maven for build.
-Features
+# Todo Service API 📝
 
-    CRUD endpoints for todos (create, read, update, delete).
+Welcome to the Todo Service API\! This is a simple yet powerful RESTful API for managing a to-do list, built with Java and the Spring Boot framework. This project serves as a practical demonstration of modern backend development, from local containerization to cloud deployment.
 
-Layered structure: Controller → Service → Repository (Spring Data JPA).
+The goal is to build a robust, well-tested, and scalable service following best practices in the software development lifecycle.
 
-Local development with PostgreSQL and Maven build workflow.
-Requirements
+-----
 
-    Java 17+.
+## \#\# Current Features ✨
 
-Maven 3.8+.
+The API currently supports full **CRUD** (Create, Read, Update, Delete) functionality for todo tasks.
 
-PostgreSQL 13+ (local or Docker).
-Getting Started
-1) Clone and build
+  * `GET /api/todo-tasks` - Fetches all tasks.
+  * `GET /api/todo-tasks/{id}` - Fetches a single task by its ID.
+  * `POST /api/todo-tasks` - Creates a new task.
+  * `PUT /api/todo-tasks/{id}` - Updates an existing task.
+  * `DELETE /api/todo-tasks/{id}` - Deletes a specific task by its ID.
+  * `DELETE /api/todo-tasks` - Deletes all tasks.
 
-   git clone https://github.com/Mukul141/todo-crud && cd todo-crud.
+-----
 
-mvn clean package to build the application jar.
-2) Start PostgreSQL
+## \#\# Tech Stack 🛠️
 
-Option A: Docker
+This project is built using a modern and widely-used set of technologies:
 
-    docker run --name todo-db -e POSTGRES_USER=todo -e POSTGRES_PASSWORD=todo -e POSTGRES_DB=todos -p 5432:5432 -d postgres:16.
+  * **Backend:** Java 17, Spring Boot 3
+  * **Database:** PostgreSQL
+  * **Data Access:** Spring Data JPA / Hibernate
+  * **Build Tool:** Apache Maven
+  * **Containerization:** Docker & Docker Compose
 
-Option B: Local install
+-----
 
-    Create database todos and a user todo with password todo; grant privileges.
+## \#\# Getting Started Locally 🚀
 
-3) Configure application
+You can get the entire application, including the database, up and running on your local machine with a single command\!
 
-Set database connection in src/main/resources/application.yaml or application.properties:
+### Prerequisites
 
-    spring.datasource.url=jdbc:postgresql://localhost:5432/todos.
+  * Git
+  * Docker and Docker Compose
+  * A Java 17 JDK (for code completion in your IDE)
 
-spring.datasource.username=todo.
+### Quick Start Guide
 
-spring.datasource.password=todo.
+1.  **Clone the repository:**
 
-spring.jpa.hibernate.ddl-auto=update (use validate in prod).
-4) Run the app
+    ```bash
+    git clone <your-repository-url>
+    cd <your-project-directory>
+    ```
 
-   mvn spring-boot:run or java -jar target/todo-crud-*.jar.
+2.  **Launch the application:**
+    Run the following command from the root of the project. This will build the application's Docker image and start both the app and database containers in the background.
 
-Health check: GET http://localhost:8080/actuator/health (if Actuator is enabled).
-API
+    ```bash
+    docker-compose up -d --build
+    ```
 
-Base URL
+That's it\! The API will be available at `http://localhost:8080`. You can now use a tool like Postman or `curl` to interact with the endpoints listed above.
 
-    http://localhost:8080.
+3.  **To stop the application:**
+    ```bash
+    docker-compose down
+    ```
 
-Endpoints
+-----
 
-    POST /api/todos — create a todo (JSON body with fields like task, done, completeDate).
+## \#\# Project Roadmap & Future Goals 🗺️
 
-GET /api/todos — list all todos.
+This project is still evolving\! Here's a look at what's next on the roadmap:
 
-GET /api/todos/{id} — get a todo by id.
-
-PUT /api/todos/{id} — update a todo.
-
-DELETE /api/todos/{id} — delete a todo by id.
-
-Examples
-
-    Create:
-    curl -X POST http://localhost:8080/api/todos -H "Content-Type: application/json" -d '{"task":"Read a book","done":false}'
-    .
-
-List:
-curl http://localhost:8080/api/todos.
-Project Structure
-
-    src/main/java/.../controller — REST controllers.
-
-src/main/java/.../service — business logic.
-
-src/main/java/.../repository — Spring Data JPA repositories.
-
-src/main/java/.../model — JPA entities.
-
-src/main/resources — configuration files.
-Configuration Tips
-
-    Use environment variables for DB credentials in non-dev environments.
-
-Prefer spring.jpa.hibernate.ddl-auto=validate in production to avoid accidental schema changes.
-Build and Test
-
-    Build: mvn clean package.
-
-Run tests: mvn test.
-
-Common plugins and setup are available in Spring Boot + PostgreSQL Maven examples for reference.
-Contributing
-
-    Open issues and pull requests with clear descriptions and minimal repro steps are welcome.
-
-License
-
-    No license specified yet. All rights reserved by default until a LICENSE is added.
+  * [ ] **Validation & Error Handling:** Implement robust input validation and a global exception handler for clean error responses.
+  * [ ] **Unit & Integration Testing:** Write comprehensive tests using JUnit 5 and MockMvc to ensure the API is reliable.
+  * [ ] **Continuous Integration (CI):** Set up a GitHub Actions workflow to automatically build and test the code on every push to the `main` branch.
+  * [ ] **Cloud Deployment:** Deploy the application as a containerized service to **Google Cloud Run**.
+  * [ ] **Performance Testing:** Use **k6** to run a load test and analyze latency metrics (p50/p95) in Google Cloud Monitoring.
