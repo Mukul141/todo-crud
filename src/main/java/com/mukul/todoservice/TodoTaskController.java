@@ -1,5 +1,6 @@
 package com.mukul.todoservice;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -28,7 +29,7 @@ public class TodoTaskController {
     }
 
     @PostMapping
-    public ResponseEntity<TodoTask> addTodoTask(@RequestBody TodoTask todoTask) {
+    public ResponseEntity<TodoTask> addTodoTask(@Valid @RequestBody TodoTask todoTask) {
         TodoTask savedTask = todoTaskService.insertTodoTask(todoTask);
 
         URI location = ServletUriComponentsBuilder

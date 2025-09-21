@@ -9,7 +9,7 @@ POST http://localhost:8080/api/todo-tasks
 Content-Type: application/json
 
 {
-  "task": "sleep",
+  "task": "test",
   "done": false
 }
 
