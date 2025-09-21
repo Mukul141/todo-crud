@@ -1,0 +1,28 @@
+name: Java CI with Maven
+
+# This workflow runs on any push to the 'main' branch
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # Use the latest version of Ubuntu to run the job
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up JDK 21 and cache Maven packages
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      # Step 3: Build the project and run tests with Maven
+      - name: Build and Test with Maven
+        run: mvn -B verify --file pom.xml
