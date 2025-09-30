@@ -13,7 +13,7 @@ public class TodoTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank(message = "task desription cannot be blank")
+    @NotBlank(message = "Task description cannot be blank")
     private String task;
     private boolean done = false;
 
@@ -25,11 +25,11 @@ public class TodoTask {
         this.task = task;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -49,11 +49,12 @@ public class TodoTask {
         this.done = done;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         TodoTask todoTask = (TodoTask) o;
-        return id == todoTask.id && done == todoTask.done && Objects.equals(task, todoTask.task);
+        return done == todoTask.done && Objects.equals(id, todoTask.id) && Objects.equals(task, todoTask.task);
     }
 
     @Override
