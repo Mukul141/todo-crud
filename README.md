@@ -1,6 +1,6 @@
 # Todo Service API: An "Operating a Service" Showcase
 
-![CI Build Status](https://github.com/Mukul141/todo-crud/actions/workflows/build.yml/badge.svg)
+[![Java CI with Maven](https://github.com/Mukul141/todo-crud/actions/workflows/build.yaml/badge.svg)](https://github.com/Mukul141/todo-crud/actions/workflows/build.yaml)
 
 ## 1. Project Vision 🚀
 
