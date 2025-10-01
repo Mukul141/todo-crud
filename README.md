@@ -1,102 +1,61 @@
-# Todo Service API 📝
+# Todo Service API: An "Operating a Service" Showcase
 
-Welcome to the Todo Service API\! This is a simple yet powerful RESTful API for managing a to-do list, built with Java and the Spring Boot framework. This project serves as a practical demonstration of modern backend development, from local containerization to cloud deployment.
+![CI Build Status](https://github.com/Mukul141/todo-crud/actions/workflows/build.yml/badge.svg)
 
-The goal is to build a robust, well-tested, and scalable service following best practices in the software development lifecycle.
+## 1. Project Vision 🚀
 
------
+This project documents the evolution of a standard Spring Boot CRUD application into a production-ready, observable, and secure RESTful service. The primary goal is to demonstrate best practices in **operating a cloud-native application** on Google Cloud Platform, focusing on security, performance analysis, and reliability.
 
-## \#\# Current Features ✨
-
-The API currently supports full **CRUD** (Create, Read, Update, Delete) functionality for todo tasks, complete with input validation and standardized error handling.
-
-  * `GET /api/todo-tasks` - Fetches all tasks.
-  * `GET /api/todo-tasks/{id}` - Fetches a single task by its ID.
-  * `POST /api/todo-tasks` - Creates a new task.
-  * `PUT /api/todo-tasks/{id}` - Updates an existing task.
-  * `DELETE /api/todo-tasks/{id}` - Deletes a specific task by its ID.
-  * `DELETE /api/todo-tasks` - Deletes all tasks.
+This repository serves as a practical showcase of the skills required to not just *build* an application, but to *run and maintain* it effectively in a modern cloud environment.
 
 -----
 
-## \#\# Tech Stack 🛠️
+## 2. Current Status: Deployed & Operational ✅
 
-This project is built using a modern and widely-used set of technologies:
-
-  * **Backend:** Java 17, Spring Boot 3
-  * **Database:** PostgreSQL (for local), H2 (for cloud/testing)
-  * **Data Access:** Spring Data JPA / Hibernate
-  * **Build Tool:** Apache Maven
-  * **Containerization:** Docker & Docker Compose
-  * **Testing:** JUnit 5 & MockMvc
-  * **Cloud & Deployment:** Google Cloud Run, Google Cloud Build, Artifact Registry
-  * **Performance Testing:** k6
-
------
-
-## \#\# Getting Started Locally 🚀
-
-You can get the entire application, including the database, up and running on your local machine with a single command\!
-
-### Prerequisites
-
-  * Git
-  * Docker and Docker Compose
-  * A Java 17 JDK
-
-### Quick Start Guide
-
-1.  **Clone the repository:**
-
-    ```bash
-    git clone <your-repository-url>
-    cd <your-project-directory>
-    ```
-
-2.  **Launch the application:**
-
-    ```bash
-    docker-compose up -d --build
-    ```
-
-    The API will be available at `http://localhost:8080`.
-
-3.  **To stop the application:**
-
-    ```bash
-    docker-compose down
-    ```
-
------
-
-## \#\# Testing ✅
-
-This project uses JUnit 5 and MockMvc for robust integration testing of the API controllers. You can run all tests locally:
-
-```bash
-mvn verify
-```
-
-Tests are also automatically executed by the **GitHub Actions CI pipeline** on every push to the `main` branch.
-
------
-
-## \#\# Cloud Deployment ☁️
-
-This application has been successfully deployed to the cloud using **Google Cloud Run**, making it a publicly accessible serverless API.
+The initial version of this API is complete and has been successfully deployed to **Google Cloud Run**.
 
 **Live API URL:** `https://todo-service-400624648397.asia-south1.run.app`
 
-The deployment pipeline uses Google Cloud Build to automatically build the Docker image from the `Dockerfile`, store it in Artifact Registry, and deploy the new version to Cloud Run.
+The currently deployed service includes the following completed features:
+* **Full CRUD Functionality:** All create, read, update, and delete operations are functional.
+* **Input Validation:** The API uses a global error handler to provide clean responses for invalid requests.
+* **Containerization:** The application is fully containerized using Docker and can be run locally via Docker Compose.
+* **Continuous Integration (CI):** A GitHub Actions workflow automatically builds and tests the application on every push.
+* **Integration & Performance Testing:** The project includes a suite of MockMvc tests for API validation and a k6 script for load testing.
 
 -----
 
-## \#\# Project Complete ✅
+## 3. The Next Phase: Project Evolution Roadmap 🗺️
 
-All initial goals for this project have been met, covering the full development lifecycle.
+The next phase of this project is to enhance the existing service with production-grade features and conduct a rigorous performance analysis.
 
-  * [x] **Validation & Error Handling:** Implemented robust input validation and a global exception handler.
-  * [x] **Unit & Integration Testing:** Wrote comprehensive tests for happy and unhappy paths.
-  * [x] **Continuous Integration (CI):** Set up a GitHub Actions workflow to automatically build and test the code.
-  * [x] **Cloud Deployment:** Deployed the application as a containerized service to **Google Cloud Run**.
-  * [x] **Performance Testing:** Used **k6** to run a load test and analyze latency metrics in Google Cloud Monitoring.
+### Phase 1: Service Hardening
+- [ ] **Integrate with Cloud SQL:** Replace the in-memory H2 database with a fully-managed PostgreSQL instance on Google Cloud SQL.
+- [ ] **Implement API Pagination:** Refactor the `GET /api/todo-tasks` endpoint to support paged data retrieval.
+- [ ] **Secure Endpoints with JWT:** Implement user registration and login, and protect all service endpoints using Spring Security.
+- [ ] **Add Rate Limiting:** Introduce a basic rate-limiting mechanism to the API.
+
+### Phase 2: Performance Analysis & Reporting
+- [ ] **Create `perf.md` Report:** Establish a markdown file to document the performance testing methodology and results.
+- [ ] **Execute k6 Test Matrix:** Run load tests against a 2x2 matrix of Cloud Run configurations (min-instances: 0 vs 1, concurrency: 1 vs 80).
+- [ ] **Analyze & Document:** Capture latency (p50/p95/p99) and cold-start data from Cloud Monitoring, and summarize the findings in `perf.md`.
+
+-----
+
+## 4. Tech Stack (Current & Planned) 🛠️
+
+* **Backend:** Java 17, Spring Boot 3, Spring Security (JWT)
+* **Database:** PostgreSQL, Google Cloud SQL, H2
+* **Testing:** JUnit 5, MockMvc, Testcontainers
+* **CI/CD:** GitHub Actions, Google Cloud Build, Google Artifact Registry
+* **Cloud Platform:** Google Cloud Run, Google Cloud Monitoring
+* **Performance Testing:** k6
+
+-----
+
+## 5. Local Development
+
+The project remains fully runnable and testable on a local machine.
+
+* **Run the full stack locally:** `docker-compose up -d --build`
+* **Run all tests:** `mvn verify`
