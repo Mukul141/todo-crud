@@ -30,6 +30,7 @@ This project is built using a modern and widely-used set of technologies:
   * **Containerization:** Docker & Docker Compose
   * **Testing:** JUnit 5 & MockMvc
   * **Cloud & Deployment:** Google Cloud Run, Google Cloud Build, Artifact Registry
+  * **Performance Testing:** k6
 
 -----
 
@@ -41,7 +42,7 @@ You can get the entire application, including the database, up and running on yo
 
   * Git
   * Docker and Docker Compose
-  * A Java 17 JDK (for code completion in your IDE)
+  * A Java 17 JDK
 
 ### Quick Start Guide
 
@@ -70,7 +71,7 @@ You can get the entire application, including the database, up and running on yo
 
 ## \#\# Testing ✅
 
-This project uses JUnit 5 and MockMvc for robust integration testing of the API controllers. Tests cover both successful "happy path" scenarios and "unhappy path" validation failures. You can run all tests locally:
+This project uses JUnit 5 and MockMvc for robust integration testing of the API controllers. You can run all tests locally:
 
 ```bash
 mvn verify
@@ -90,14 +91,12 @@ The deployment pipeline uses Google Cloud Build to automatically build the Docke
 
 -----
 
-## \#\# Project Roadmap & Future Goals 🗺️
+## \#\# Project Complete ✅
 
-This project is still evolving\! Here's a look at what's been done and what's next:
+All initial goals for this project have been met, covering the full development lifecycle.
 
-  * [x] **Validation & Error Handling:** Implement robust input validation and a global exception handler for clean error responses.
-  * [x] **Unit & Integration Testing:** Write comprehensive tests using JUnit 5 and MockMvc to ensure the API is reliable.
-  * [x] **Continuous Integration (CI):** Set up a GitHub Actions workflow to automatically build and test the code on every push to the `main` branch.
-  * [x] **Cloud Deployment:** Deploy the application as a containerized service to **Google Cloud Run**.
-  * [ ] **Performance Testing:** Use **k6** to run a load test and analyze latency metrics (p50/p95) in Google Cloud Monitoring.
-
-After you push your code and this updated README, we can proceed with the final step: performance testing.
+  * [x] **Validation & Error Handling:** Implemented robust input validation and a global exception handler.
+  * [x] **Unit & Integration Testing:** Wrote comprehensive tests for happy and unhappy paths.
+  * [x] **Continuous Integration (CI):** Set up a GitHub Actions workflow to automatically build and test the code.
+  * [x] **Cloud Deployment:** Deployed the application as a containerized service to **Google Cloud Run**.
+  * [x] **Performance Testing:** Used **k6** to run a load test and analyze latency metrics in Google Cloud Monitoring.
