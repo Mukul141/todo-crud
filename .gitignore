@@ -37,7 +37,7 @@ nbproject/private/
 nbbuild/
 dist/
 nbdist/
-.nb-gradle/
+/.nb-gradle/
 build/
 
 ### VS Code ###
@@ -48,3 +48,13 @@ build/
 # =================================================================
 .DS_Store
 Thumbs.db
+
+# =================================================================
+# Local Configuration & Secrets (DO NOT COMMIT)
+# =================================================================
+# Contains sensitive credentials like database passwords
+env.yaml
+env-public.yaml
+
+# Temporary files for API testing
+payload.json

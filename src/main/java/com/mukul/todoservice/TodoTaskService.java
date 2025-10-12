@@ -1,6 +1,8 @@
 package com.mukul.todoservice;
 
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;         // <-- IMPORT THIS
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -13,8 +15,8 @@ public class TodoTaskService {
     }
 
     // GET Methods
-    public List<TodoTask> getAllTodoTasks() {
-        return todoTaskRepository.findAll();
+    public Page<TodoTask> getAllTodoTasks(Pageable pageable) {
+        return todoTaskRepository.findAll(pageable);
     }
     public TodoTask getTodoTasksById(Integer id) {
         return todoTaskRepository.findById(id).orElseThrow(() -> new IllegalStateException(id + "not found"));

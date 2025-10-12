@@ -1,6 +1,8 @@
 package com.mukul.todoservice;
 
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -19,8 +21,8 @@ public class TodoTaskController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TodoTask>> getTodoTasks() {
-        return ResponseEntity.ok(todoTaskService.getAllTodoTasks());
+    public ResponseEntity<Page<TodoTask>> getTodoTasks(Pageable pageable) { // <-- CHANGE THE METHOD SIGNATURE
+        return ResponseEntity.ok(todoTaskService.getAllTodoTasks(pageable));
     }
 
     @GetMapping("{id}")
