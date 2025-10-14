@@ -3,11 +3,11 @@ GET http://localhost:8080/api/todo-tasks
 
 ### GET all with Auth
 GET http://localhost:8080/api/todo-tasks
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtdWt1bCIsImlhdCI6MTc2MDMzNTcyOSwiZXhwIjoxNzYwMzM3MTY5fQ.LxQve4xyrtZK67lYpQROYlGsomWX2hnHUh83ap235TQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtdWt1bCIsImlhdCI6MTc2MDQ1MTE4MiwiZXhwIjoxNzYwNDUyNjIyfQ.e5OYpkn2zLbqsffFi3vsFsGRx6raDtjcMn1uZkaZr18
 
 ###
 GET http://localhost:8080/api/todo-tasks/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtdWt1bCIsImlhdCI6MTc2MDM3Nzc4OSwiZXhwIjoxNzYwMzc5MjI5fQ.o4J8_7rHv44U2nZ3uludiYgTpq_pNpZyYXfYW1ocZ-I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtdWt1bCIsImlhdCI6MTc2MDQ1NjI3NiwiZXhwIjoxNzYwNDU3NzE2fQ.wZOrsF-ws67BRqyWot9rY-Q5ifLAT25yB87QiEOB5sI
 
 ### Login to get a new token
 POST http://localhost:8080/api/auth/login
