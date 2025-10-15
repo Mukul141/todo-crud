@@ -1,4 +1,0 @@
-SPRING_PROFILES_ACTIVE: cloud-sql
-INSTANCE_CONNECTION_NAME: performacetest-todoo:asia-south1:todo-service-db-v2
-SPRING_DATASOURCE_USERNAME: todouser
-SPRING_DATASOURCE_PASSWORD: +D,AYBx*R0pkC)dG
